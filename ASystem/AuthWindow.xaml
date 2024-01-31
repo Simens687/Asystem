@@ -1,0 +1,54 @@
+﻿<Window x:Class="ASystem.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ASystem"
+        mc:Ignorable="d"
+        Title="ASystem" Height="420" Width="620" Background="#FFA3BDED">
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.05*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.05*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+
+        <Border Background="#FFFDD9B5" CornerRadius="30" Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" Grid.RowSpan="9"/>
+
+        <Button Background="#FFCBA9" Grid.Column="3" Grid.Row="8" Content="Войти" FontSize="25" Foreground="White" BorderBrush="#00707070" Click="Enter">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding}" Foreground="White" Margin="0, -5, 0, 0"/>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
+
+        <TextBox Grid.Column="2" Grid.Row="4" Grid.ColumnSpan="3" Grid.RowSpan="1" Background="#FFDBA786" BorderBrush="Black" Foreground="White" FontSize="20" x:Name="TbxLogin" MaxLength="50"/>
+
+        <PasswordBox Grid.Column="2" Grid.Row="6" Grid.ColumnSpan="3" Grid.RowSpan="1" Background="#FFDBA786" BorderBrush="Black" Foreground="White" FontSize="20" x:Name="TbxPass" MaxLength="50"/>
+
+        <Border Background="#FFCBA9" CornerRadius="20" Grid.Column="3" Grid.Row="2" Grid.ColumnSpan="1" Grid.RowSpan="1">
+            <TextBlock Text="ASystem" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontWeight="Bold"/>
+        </Border>
+        
+    </Grid>
+</Window>

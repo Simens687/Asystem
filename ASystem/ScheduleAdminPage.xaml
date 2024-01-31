@@ -1,0 +1,118 @@
+﻿<Page x:Class="ASystem.ScheduleAdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ASystem"
+      mc:Ignorable="d" 
+       d:DesignHeight="280" d:DesignWidth="570" Background="#FFFDD9B5"
+  Title="ASystem">
+
+    <Page.Resources>
+        <Style x:Key="CustomDataGridBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="#FFC29A"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+
+        <Style x:Key="CustomDataGridStyle" TargetType="DataGrid">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="AlternatingRowBackground" Value="#FFC29A"/>
+        </Style>
+
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#DBA786"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="15" Cursor="">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#DBA786"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="#FFCBA9" BorderBrush="Black" BorderThickness="1" CornerRadius="15">
+                            <TextBox Foreground="{TemplateBinding Foreground}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay}" BorderThickness="0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "2*"/>
+            <ColumnDefinition Width = "0.2*"/>
+            <ColumnDefinition Width = "0.8*"/>
+            <ColumnDefinition Width = "0.5*"/>
+            <ColumnDefinition Width = "0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition Height="37*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="6"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="28*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+        <Border Style="{StaticResource CustomDataGridBorderStyle}" Grid.Column="0" Grid.Row="0" Grid.RowSpan="15">
+            <DataGrid Style="{StaticResource CustomDataGridStyle}" x:Name="ScheduleGrid" SelectionChanged="SelectGrid">
+            </DataGrid>
+        </Border>
+
+        <TextBox x:Name="TbxNumberSubject" Style="{StaticResource CustomTextBoxStyle}" Grid.Column="2" Grid.Row="1" Grid.ColumnSpan="3" 
+    Background="#FFDBA786" BorderBrush="Black" Foreground="White" FontSize="15" SelectionBrush="#FF0078D7" TextAlignment="Center"/>
+
+        <ComboBox x:Name="CbxSubject" Grid.Column="2" Grid.Row="3" Grid.ColumnSpan="2" BorderBrush="#FFDBA786" Background="#FFDBA786">
+        </ComboBox>
+
+        <ComboBox x:Name="CbxDay" Grid.Column="2" Grid.Row="5" Grid.ColumnSpan="2" BorderBrush="#FFDBA786" Background="#FFDBA786"/>
+
+        <ComboBox x:Name="CbxTeacher" Grid.Column="2" Grid.Row="7" Grid.ColumnSpan="2" BorderBrush="#FFDBA786" Background="#FFDBA786"/>
+
+        <Button Grid.Column="2" Grid.Row="9"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Добавить" Foreground="White" 
+    FontSize="15"
+    x:Name="BtnCreate" Click="ActCreate"/>
+
+        <Button Grid.Column="2" Grid.Row="13"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Удалить" Foreground="White" 
+    FontSize="15"
+    x:Name="BtnDelete" Click="ActDelete"/>
+    </Grid>
+</Page>

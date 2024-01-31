@@ -1,0 +1,129 @@
+﻿<Page x:Class="ASystem.MarkTeacherPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ASystem"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800" Background="#FFFDD9B5" Title="MarkTeacherPage">
+
+    <Page.Resources>
+        <Style x:Key="CustomDataGridBorderStyle" TargetType="Border">
+            <Setter Property="Background" Value="#FFC29A"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+
+        <Style x:Key="CustomDataGridStyle" TargetType="DataGrid">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="BorderBrush" Value="Transparent"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="RowHeaderWidth" Value="0"/>
+            <Setter Property="AlternatingRowBackground" Value="#FFC29A"/>
+        </Style>
+
+        <Style x:Key="CustomButtonStyle" TargetType="Button">
+            <Setter Property="Background" Value="#DBA786"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Padding" Value="10"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" CornerRadius="15" Cursor="">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="True">
+                                <Setter TargetName="border" Property="Background" Value="#DBA786"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="CustomTextBoxStyle" TargetType="TextBox">
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="#FFCBA9" BorderBrush="Black" BorderThickness="1" CornerRadius="10">
+                            <TextBox Foreground="{TemplateBinding Foreground}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Text, Mode=TwoWay}" BorderThickness="0"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width = "1*"/>
+            <ColumnDefinition Width = "1*"/>
+            <ColumnDefinition Width = "1*"/>
+            <ColumnDefinition Width = "0.3*"/>
+            <ColumnDefinition Width = "0.3*"/>
+            <ColumnDefinition Width = "1*"/>
+            <ColumnDefinition Width = "0.3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions >
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="1.3*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="1.5*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+
+        <Border Style="{StaticResource CustomDataGridBorderStyle}" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="3" Grid.RowSpan="9">
+            <DataGrid Style="{StaticResource CustomDataGridStyle}">
+            </DataGrid>
+        </Border>
+
+        <TextBox Style="{StaticResource CustomTextBoxStyle}" Grid.Column="4" Grid.Row="1" Grid.ColumnSpan="3" Grid.RowSpan="1" 
+                 Background="#FFDBA786" BorderBrush="Black" Foreground="White" FontSize="10" SelectionBrush="#FF0078D7" TextAlignment="Center"/>
+
+        <Button Grid.Column="5" Grid.Row="3"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Добавить" Foreground="White" 
+    FontSize="15"
+    x:Name="BtnCreate"/>
+
+        <Button Grid.Column="5" Grid.Row="5"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Удалить" Foreground="White" 
+    FontSize="15"
+    x:Name="BtnDelete"/>
+
+        <Button Grid.Column="5" Grid.Row="7"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Изменить" Foreground="White" 
+    FontSize="15"
+    x:Name="BtnUpdate"/>
+
+        <Button Grid.Column="4" Grid.Row="9" Grid.RowSpan="2" Grid.ColumnSpan="5"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Анализ успеваемости" Foreground="White" 
+    FontSize="12"
+    x:Name="BtnAnalysis"/>
+
+        <Button Grid.Column="1" Grid.Row="10" Grid.RowSpan="2"
+    Style="{StaticResource CustomButtonStyle}"
+    Content="Экспорт" Foreground="White" 
+    FontSize="15"
+    x:Name="BtnExport"/>
+
+    </Grid>
+</Page>
